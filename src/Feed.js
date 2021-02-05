@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Feed.css';
 import Post from './Post';
 import InputOption from './InputOption';
@@ -7,12 +7,32 @@ import ImageIcon from '@material-ui/icons/Image';
 import SubscriptionsIcon from '@material-ui/icons/Subscriptions';
 import EventNoteIcon from '@material-ui/icons/EventNote';
 import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
+import { db } from './firebase';
+import firebase from 'firebase';
 function Feed() {
+  const [input, setInput] = useState('');
   const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    db.collection('posts').onSnapshot((snapshot) =>
+      setPosts(
+        snapshot.docs.map((doc) => ({
+          id: doc.id,
+          data: doc.data(),
+        }))
+      )
+    );
+  }, []);
 
   const sendPost = (e) => {
     e.preventDefault();
-    
+    db.collection('posts').add({
+      name: 'Ravinderpal Singh',
+      description: 'This is test',
+      message: input,
+      photoUrl: '',
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+    });
   };
   return (
     <div className='feed'>
@@ -20,7 +40,11 @@ function Feed() {
         <div className='feed_input'>
           <CreateIcon />
           <form>
-            <input type='text' />
+            <input
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              type='text'
+            />
             <button onClick={sendPost} type='submit'>
               Send
             </button>
@@ -38,10 +62,15 @@ function Feed() {
         </div>
       </div>
       {/* Posts */}
-      {posts.map((post) => (
-        <Post />
+      {posts.map(({ id, data: { name, description, message, photoUrl } }) => (
+        <Post
+          key={id}
+          name={name}
+          description={description}
+          message={message}
+          photoUrl={photoUrl}
+        />
       ))}
-      <Post name='Ravinderpal Singh' description='test' message='Hello' />
     </div>
   );
 }

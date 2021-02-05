@@ -10,6 +10,7 @@ import ChatIcon from '@material-ui/icons/Chat';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { logout } from './features/userSlice';
 import { auth } from './firebase';
+import logo from '../src/assets/logoMasters.png';
 
 function header() {
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -23,10 +24,7 @@ function header() {
   return (
     <div className='header'>
       <div className='header_left'>
-        <img
-          src='http://www.flaticon.com/svg/static/icons/svg/174/174857.svg'
-          alt='ImageConnecitin'
-        />
+        <img src={logo} alt='ImageConnecitin' />
 
         <div className='header_search'>
           <SearchIcon />

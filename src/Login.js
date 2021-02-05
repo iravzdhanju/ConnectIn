@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { login } from './features/userSlice';
 import { auth } from './firebase';
+import logoMaster from '../src/assets/logoMaster.png';
 import './Login.css';
 function Login() {
   const [email, setEmail] = useState('');
@@ -52,10 +53,7 @@ function Login() {
   };
   return (
     <div className='login'>
-      <img
-        src=' https://seeklogo.com/images/L/linkedin-logo-F84AF05CFC-seeklogo.com.png'
-        alt='Logo'
-      />
+      <img src={logoMaster} alt='logoHeader' />
       <form>
         <input
           type='text'

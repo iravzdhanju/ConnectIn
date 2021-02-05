@@ -17,7 +17,7 @@ function Widgets() {
   return (
     <div className='widgets'>
       <div className='widgets_Header'>
-        <h2>LinkedIn News</h2>
+        <h2>ConnectIn News</h2>
 
         <InfoIcon />
       </div>

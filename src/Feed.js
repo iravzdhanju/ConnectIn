@@ -12,10 +12,15 @@ import firebase from 'firebase';
 import { useSelector } from 'react-redux';
 import { selectUser } from './features/userSlice';
 import FlipMove from 'react-flip-move';
+import { AddAlert } from '@material-ui/icons';
 function Feed() {
   const user = useSelector(selectUser);
   const [input, setInput] = useState('');
   const [posts, setPosts] = useState([]);
+  const alertsOnclick = (e) => {
+    e.preventDefault();
+    alert('Feature is comming soon');
+  };
 
   useEffect(() => {
     db.collection('posts')
@@ -57,7 +62,12 @@ function Feed() {
           </form>
         </div>
         <div className='feed_inputOptions'>
-          <InputOption Icon={ImageIcon} title='Photo' color='#70B5F9' />
+          <InputOption
+            Icon={ImageIcon}
+            title='Photo'
+            color='#70B5F9'
+            onClick={alertsOnclick}
+          />
           <InputOption Icon={SubscriptionsIcon} title='Video' color='#E7A33E' />
           <InputOption Icon={EventNoteIcon} title='Event' color='#C0CBCD' />
           <InputOption

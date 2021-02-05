@@ -51,7 +51,7 @@ function Login() {
       .catch((error) => alert(error));
   };
   return (
-    <div class='login'>
+    <div className='login'>
       <img
         src=' https://seeklogo.com/images/L/linkedin-logo-F84AF05CFC-seeklogo.com.png'
         alt='Logo'

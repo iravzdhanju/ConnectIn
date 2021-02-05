@@ -11,6 +11,18 @@ function Login() {
   const dispatch = useDispatch();
   const loginToApp = (e) => {
     e.preventDefault();
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then((userAuth) => {
+        dispatch(
+          login({
+            email: userAuth.user.email,
+            displayName: userAuth.user.displayName,
+            profileUrl: userAuth.user.phoUrl,
+          })
+        );
+      })
+      .catch((error) => alert(error));
   };
 
   const register = () => {

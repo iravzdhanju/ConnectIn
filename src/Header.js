@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import './Header.css';
 import HeaderOption from './HeaderOption';
 import SearchIcon from '@material-ui/icons/Search';

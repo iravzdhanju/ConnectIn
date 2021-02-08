@@ -1,11 +1,13 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
-## How to Register
+## How to Register and Login
 Fill out the details and click on Register Now
-
-## How to Login
-Fill out the details and click on Signin
 ![screen_1](https://user-images.githubusercontent.com/52969271/107240381-d701f380-69f7-11eb-9c1f-e2ebf3be77f7.jpg)
+
+## How to Browse Website
+Fill out the Post column and press enter to add a Post
+![screen_2](https://user-images.githubusercontent.com/52969271/107240651-25af8d80-69f8-11eb-9bb4-accd1d2e51d0.jpg)
+
 
 ## Available Scripts
 
